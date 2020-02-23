@@ -57,13 +57,13 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(SignIn.this, "Aвторизация успешна", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SignIn.this, "Login successful", Toast.LENGTH_SHORT).show();
                             Intent home = new Intent(SignIn.this, Home.class);
                             Common.currentUser = new User(edtMail.getText().toString(), edtPassword.getText().toString());
                             startActivity(home);
                             finish();
                         } else
-                            Toast.makeText(SignIn.this, "Aвторизация провалена", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SignIn.this, "Login failed", Toast.LENGTH_SHORT).show();
                     }
                 });
     }

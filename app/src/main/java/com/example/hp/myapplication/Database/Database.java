@@ -28,7 +28,7 @@ public class Database extends SQLiteOpenHelper {
         super(context, DB_NAME, null, DB_VER);
     }
 
-    public List<Order> getCarts() {
+    public List<Order> getCart() {
         SQLiteDatabase db = getReadableDatabase();
         SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
 
@@ -72,9 +72,9 @@ public class Database extends SQLiteOpenHelper {
         db.execSQL(query);
     }
 
-    public void removeItem(Order order) {
+    public void removeItem(String orderId) {
         SQLiteDatabase db = getWritableDatabase();
-        String query = "DELETE FROM " + TABLE_NAME + " WHERE " + PRODUCT_ID + "=" + order.getProductId();
+        String query = "DELETE FROM " + TABLE_NAME + " WHERE " + PRODUCT_ID + "=" + orderId;
         db.execSQL(query);
     }
 

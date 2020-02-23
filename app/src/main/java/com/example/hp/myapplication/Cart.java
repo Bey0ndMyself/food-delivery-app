@@ -35,7 +35,6 @@ public class Cart extends AppCompatActivity {
 
     TextView txtTotalPrice;
     Button btnPlace;
-    Button btnRemove;
 
     List<Order> cart = new ArrayList<>();
     CartAdapter adapter;
@@ -56,18 +55,11 @@ public class Cart extends AppCompatActivity {
 
         txtTotalPrice = findViewById(R.id.total);
         btnPlace = findViewById(R.id.btnPlaceOrder);
-        btnPlace = findViewById(R.id.btnRemove);
 
         btnPlace.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showAlertDialog();
-            }
-        });
-        btnRemove.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                removeItem();
             }
         });
         loadListFood();
@@ -107,16 +99,22 @@ public class Cart extends AppCompatActivity {
         builder.show();
     }
 
-    private void removeItem(){
-        Database database = new Database(this);
-        //TODO database.removeItem();
-    }
-
     private void loadListFood() {
-        cart = new Database(this).getCarts();
+        cart = new Database(this).getCart();
         adapter = new CartAdapter(cart, this);
         recyclerView.setAdapter(adapter);
+        RecyclerView.AdapterDataObserver observer = new RecyclerView.AdapterDataObserver() {
+            @Override
+            public void onChanged() {
+                setTotalPrice();
+            }
+        };
+        adapter.registerAdapterDataObserver(observer);
+        setTotalPrice();
+    }
 
+    private void setTotalPrice(){
+        cart = new Database(this).getCart();
         double total = 0;
         for (Order order : cart) {
             total += (Double.parseDouble(order.getPrice())) * (Integer.parseInt(order.getQuantity()));
