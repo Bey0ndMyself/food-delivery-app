@@ -981,9 +981,9 @@ int id beginning 0x7f090025
 int id blocking 0x7f090026
 int id bottom 0x7f090027
 int id btnPlaceOrder 0x7f090028
-int id btnSignIn 0x7f090029
-int id btnSignUp 0x7f09002a
-int id btnTxtSelector 0x7f09002b
+int id btnRemove 0x7f090029
+int id btnSignIn 0x7f09002a
+int id btnSignUp 0x7f09002b
 int id btn_next 0x7f09002c
 int id btn_skip 0x7f09002d
 int id btncart 0x7f09002e

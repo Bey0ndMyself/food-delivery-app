@@ -4140,9 +4140,9 @@ public final class R {
     public static final int blocking=0x7f090026;
     public static final int bottom=0x7f090027;
     public static final int btnPlaceOrder=0x7f090028;
-    public static final int btnSignIn=0x7f090029;
-    public static final int btnSignUp=0x7f09002a;
-    public static final int btnTxtSelector=0x7f09002b;
+    public static final int btnRemove=0x7f090029;
+    public static final int btnSignIn=0x7f09002a;
+    public static final int btnSignUp=0x7f09002b;
     public static final int btn_next=0x7f09002c;
     public static final int btn_skip=0x7f09002d;
     public static final int btncart=0x7f09002e;

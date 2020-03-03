@@ -1,4 +1,4 @@
-#Sun Feb 16 21:06:17 EET 2020
+#Sun Feb 23 20:48:16 EET 2020
 base.0=D\:\\4_course\\cursovoi\\Food_Ordering_App\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
 path.0=classes.dex
 renamed.0=classes.dex
