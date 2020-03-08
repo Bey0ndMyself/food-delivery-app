@@ -1,10 +1,10 @@
 package com.example.hp.myapplication;
 
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -20,6 +20,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import java.text.NumberFormat;
+import java.util.Locale;
 
 public class FoodDetail extends AppCompatActivity {
 
@@ -54,7 +57,7 @@ public class FoodDetail extends AppCompatActivity {
                         numberButton.getNumber(),
                         currentFood.getPrice(),
                         currentFood.getDiscount()));
-                Toast.makeText(FoodDetail.this, "Added to cart", Toast.LENGTH_SHORT).show();
+                Toast.makeText(FoodDetail.this, "Додано в кошик", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -83,7 +86,10 @@ public class FoodDetail extends AppCompatActivity {
                 currentFood = dataSnapshot.getValue(Food.class);
                 Glide.with(getBaseContext()).load(currentFood.getImage()).into(food_image);
 
-                food_price.setText(currentFood.getPrice());
+                Locale locale = new Locale("ua", "UA");
+                NumberFormat fmt = NumberFormat.getCurrencyInstance(locale);
+                double price = Double.parseDouble(currentFood.getPrice());
+                food_price.setText(fmt.format(price));
                 food_name.setText(currentFood.getName());
                 food_description.setText(currentFood.getDescription());
             }

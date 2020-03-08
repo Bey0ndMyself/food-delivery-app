@@ -1,23 +1,23 @@
 <resources>
-    <string name="app_name">FoodDelivery</string>
+    <string name="app_name">Good Time delivery</string>
     <string name="title_activity_welcome">Home Screen</string>
-    <string name="next">NEXT</string>
-    <string name="skip">SKIP</string>
-    <string name="start">GOT IT</string>
-    <string name="SignUp">signup</string>
-    <string name="slogan">No matter where you are we will find you and feed you.</string>
+    <string name="next">ДАЛІ</string>
+    <string name="skip">ПРОПУСТИТИ</string>
+    <string name="start">ЗРОЗУМІВ</string>
+    <string name="SignUp">реєстрація</string>
+    <string name="slogan">Де б ви не знаходилися, ми знайдемо і нагодуємо вас</string>
 
-    <string name="slide_1_title">Hello Food!</string>
-    <string name="slide_1_desc">The easiest way to order food from your favourite restaurant!</string>
+    <string name="slide_1_title">Good Time</string>
+    <string name="slide_1_desc">Найпростіший спосіб замовити їжу в улюбленому ресторані</string>
 
-    <string name="slide_2_title">Schedule Delivery</string>
-    <string name="slide_2_desc">Schedule your delivery and surprise your family and friends </string>
+    <string name="slide_2_title">Доставка за розкладом</string>
+    <string name="slide_2_desc">Сплануйте доставку та здивуйте своїх рідних та друзів</string>
 
-    <string name="slide_3_title">Great Discounts</string>
-    <string name="slide_3_desc">Best Discount on Every Order!</string>
+    <string name="slide_3_title">Великі знижки</string>
+    <string name="slide_3_desc">Найкраща знижка на кожне замовлення</string>
 
-    <string name="slide_4_title">Fastest Delivery</string>
-    <string name="slide_4_desc">Fastest Delivery compared to any other Food App</string>
+    <string name="slide_4_title">Найшвидша доставка</string>
+    <string name="slide_4_desc">Найшвидша доставка в порівнянні з будь-якою іншою службою доставки</string>
 
     <string name="play_again_desc">To see the welcome slider again, goto Settings -> apps -> welcome slider -> clear data</string>
     <string name="play_again">Play Again</string>

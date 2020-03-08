@@ -1,9 +1,9 @@
 package com.example.hp.myapplication;
 
 import android.content.DialogInterface;
+import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -44,14 +44,10 @@ public class Cart extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
 
-        //database = FirebaseDatabase.getInstance();
-        //requests = database.getReference("Requests");
+        database = FirebaseDatabase.getInstance();
+        requests = database.getReference("Requests");
 
-        //Init
-        recyclerView = findViewById(R.id.listCart);
-        recyclerView.setHasFixedSize(true);
-        layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
+        initRecycleView();
 
         txtTotalPrice = findViewById(R.id.total);
         btnPlace = findViewById(R.id.btnPlaceOrder);
@@ -65,11 +61,17 @@ public class Cart extends AppCompatActivity {
         loadListFood();
     }
 
+    private void initRecycleView() {
+        recyclerView = findViewById(R.id.listCart);
+        recyclerView.setHasFixedSize(true);
+        layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+    }
+
     private void showAlertDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(Cart.this);
-        builder.setTitle("One More Step!");
-        builder.setMessage("Enter Your Address:");
-
+        builder.setTitle("Ще один крок!");
+        builder.setMessage("Введiть адерсу доставки:");
         final EditText edtAddress = new EditText(Cart.this);
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
@@ -77,11 +79,19 @@ public class Cart extends AppCompatActivity {
         );
         edtAddress.setLayoutParams(lp);
         builder.setView(edtAddress);
+//        builder.setSingleChoiceItems(R.array.payment_options, 0, new DialogInterface.OnClickListener() {
+//            public void onClick(DialogInterface dialog, int which) {
+//                System.out.println(which);
+//            }
+//        });
         builder.setIcon(R.drawable.ic_shopping_cart_black_24dp);
         builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-
+                if (edtAddress.getText().toString().isEmpty()) {
+                    Toast.makeText(Cart.this, "Адреса не може будти порожньою", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 Request request = new Request(
                         Common.currentUser.getMail(),
                         edtAddress.getText().toString(),
@@ -89,10 +99,10 @@ public class Cart extends AppCompatActivity {
                         cart
                 );
 
-                //    requests.child(String.valueOf(System.currentTimeMillis())).setValue(request);
+                requests.child(String.valueOf(System.currentTimeMillis())).setValue(request);
 
                 new Database(getBaseContext()).cleanCart();
-                Toast.makeText(Cart.this, "Your  Order has been Confirmed!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Cart.this, "Ваше замовлення було підтверджено!", Toast.LENGTH_SHORT).show();
                 finish();
             }
         });
@@ -113,13 +123,13 @@ public class Cart extends AppCompatActivity {
         setTotalPrice();
     }
 
-    private void setTotalPrice(){
+    private void setTotalPrice() {
         cart = new Database(this).getCart();
         double total = 0;
         for (Order order : cart) {
             total += (Double.parseDouble(order.getPrice())) * (Integer.parseInt(order.getQuantity()));
         }
-        Locale locale = new Locale("en", "US");
+        Locale locale = new Locale("ua", "UA");
         NumberFormat fmt = NumberFormat.getCurrencyInstance(locale);
 
         txtTotalPrice.setText(fmt.format(total));

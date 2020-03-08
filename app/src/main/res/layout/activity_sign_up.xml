@@ -20,7 +20,7 @@
             android:layout_width="340dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
-            android:hint="Email"
+            android:hint="Пошта"
             android:inputType="textEmailAddress"
             android:textColor="@android:color/white"
             android:textSize="34sp"
@@ -33,7 +33,7 @@
             android:layout_width="340dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
-            android:hint="Password"
+            android:hint="Пароль"
             android:inputType="textPassword"
             android:textColor="@android:color/white"
             android:textSize="34sp"
@@ -52,6 +52,6 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="240dp"
-        android:text="Sign Up" />
+        android:text="Зареєструватися" />
 
 </RelativeLayout>

@@ -40,7 +40,7 @@ public class Home extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         Toolbar toolbar = findViewById(R.id.toolbar);
-        toolbar.setTitle("Menu");
+        toolbar.setTitle("Меню");
 
         setSupportActionBar(toolbar);
 
@@ -81,11 +81,13 @@ public class Home extends AppCompatActivity
                 viewHolder.txtMenuName.setText(model.getName());
                 Glide.with(getBaseContext()).load(model.getImage()).into(viewHolder.imageView);
 
+                final String name = model.getName();
                 viewHolder.setItemClickListener(new ItemClickListener() {
                     @Override
                     public void onClick(View view, int position, boolean isLongClick) {
                         Intent foodList = new Intent(Home.this, FoodList.class);
                         foodList.putExtra("CategoryId", adapter.getRef(position).getKey());
+                        foodList.putExtra("CategoryName", name);
                         startActivity(foodList);
                     }
                 });

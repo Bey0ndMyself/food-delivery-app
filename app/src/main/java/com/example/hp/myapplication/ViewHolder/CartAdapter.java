@@ -44,7 +44,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartViewHolder>{
     public void onBindViewHolder(@NonNull CartViewHolder holder, final int position) {
         TextDrawable drawable = TextDrawable.builder().buildRound(""+ orders.get(position).getQuantity(), Color.RED);
         holder.imgCartCount.setImageDrawable(drawable);
-        Locale locale = new Locale("en","US");
+        Locale locale = new Locale("ua","UA");
         NumberFormat fmt = NumberFormat.getCurrencyInstance(locale);
         double price = (Double.parseDouble(orders.get(position).getPrice()))*(Integer.parseInt(orders.get(position).getQuantity()));
         holder.orderPrice.setText(fmt.format(price));
@@ -56,7 +56,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartViewHolder>{
             public void onClick(View v) {
                 Order order = orders.remove(position);
                 database.removeItem(order.getProductId());
-                Toast.makeText(context, "Removed from cart", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Видалено з кошика", Toast.LENGTH_SHORT).show();
                 notifyDataSetChanged();
             }
         });

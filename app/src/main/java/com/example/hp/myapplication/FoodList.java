@@ -24,6 +24,7 @@ public class FoodList extends AppCompatActivity {
     private DatabaseReference foodList;
     private String categoryId = "";
     private FirebaseRecyclerAdapter<Food, FoodViewHolder> adapter;
+    private String title;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,10 +61,18 @@ public class FoodList extends AppCompatActivity {
 
     private void setToolbar() {
         Toolbar toolbar = findViewById(R.id.toolbar);
-        toolbar.setTitle("Food list");
+        toolbar.setTitle(getCategoryName());
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+    }
+
+    private String getCategoryName() {
+        title = getIntent().getStringExtra("CategoryName");
+        if (title == null || title.isEmpty()) {
+            title = "Меню";
+        }
+        return title;
     }
 
     private void loadListFood(String categoryId) {

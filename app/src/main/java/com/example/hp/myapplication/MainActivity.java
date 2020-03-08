@@ -1,17 +1,14 @@
 package com.example.hp.myapplication;
 
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
     private Button btnSignIn, btnSignUp;
-    private TextView slogan;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,11 +17,6 @@ public class MainActivity extends AppCompatActivity {
 
         btnSignUp = findViewById(R.id.btnSignUp);
         btnSignIn = findViewById(R.id.btnSignIn);
-
-        slogan = findViewById(R.id.slogan);
-
-        Typeface face = Typeface.createFromAsset(getAssets(), "Fonts/NABILA.TTF");
-        slogan.setTypeface(face);
 
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override

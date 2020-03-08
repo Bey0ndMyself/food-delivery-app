@@ -20,7 +20,7 @@
             android:layout_width="340dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
-            android:hint="Email"
+            android:hint="Пошта"
             android:inputType="textEmailAddress"
             android:text="example@mail.com"
             android:textColor="@android:color/white"
@@ -31,7 +31,7 @@
 
         <com.rengwuxian.materialedittext.MaterialEditText
             android:id="@+id/edtPassword"
-            android:hint="Password"
+            android:hint="Пароль"
             android:layout_width="340dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
@@ -55,6 +55,6 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="220dp"
-        android:text="Sign In" />
+        android:text="Увійти" />
 
 </RelativeLayout>

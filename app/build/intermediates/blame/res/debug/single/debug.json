@@ -332,6 +332,10 @@
         "source": "D:\\4_course\\cursovoi\\Food_Ordering_App\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_restaurant_menu_black_24dp.png"
     },
     {
+        "merged": "D:\\4_course\\cursovoi\\Food_Ordering_App\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_foreground.png.flat",
+        "source": "D:\\4_course\\cursovoi\\Food_Ordering_App\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_foreground.png"
+    },
+    {
         "merged": "D:\\4_course\\cursovoi\\Food_Ordering_App\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_tab_indicator_mtrl_alpha.9.png.flat",
         "source": "C:\\Users\\User\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\43f1609bdae5b496513a10637924df25\\res\\drawable-mdpi-v4\\abc_tab_indicator_mtrl_alpha.9.png"
     },
@@ -1376,6 +1380,10 @@
         "source": "C:\\Users\\User\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\43f1609bdae5b496513a10637924df25\\res\\drawable-xxxhdpi-v4\\abc_text_select_handle_right_mtrl_dark.png"
     },
     {
+        "merged": "D:\\4_course\\cursovoi\\Food_Ordering_App\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_foreground.png.flat",
+        "source": "D:\\4_course\\cursovoi\\Food_Ordering_App\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_foreground.png"
+    },
+    {
         "merged": "D:\\4_course\\cursovoi\\Food_Ordering_App\\app\\build\\intermediates\\res\\merged\\debug\\layout_notification_media_action.xml.flat",
         "source": "C:\\Users\\User\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-27.1.1.aar\\e6483e8cabc3f7cf78962f3fcf74658d\\res\\layout\\notification_media_action.xml"
     },
@@ -1816,6 +1824,10 @@
         "source": "C:\\Users\\User\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\43f1609bdae5b496513a10637924df25\\res\\drawable-hdpi-v4\\abc_ic_commit_search_api_mtrl_alpha.png"
     },
     {
+        "merged": "D:\\4_course\\cursovoi\\Food_Ordering_App\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_foreground.png.flat",
+        "source": "D:\\4_course\\cursovoi\\Food_Ordering_App\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_foreground.png"
+    },
+    {
         "merged": "D:\\4_course\\cursovoi\\Food_Ordering_App\\app\\build\\intermediates\\res\\merged\\debug\\layout_app_bar_home.xml.flat",
         "source": "D:\\4_course\\cursovoi\\Food_Ordering_App\\app\\src\\main\\res\\layout\\app_bar_home.xml"
     },
@@ -2000,6 +2012,10 @@
         "source": "C:\\Users\\User\\.gradle\\caches\\transforms-1\\files-1.1\\design-27.1.1.aar\\8ef8e91f15af25ae7ef974cb26bc6457\\res\\layout-sw600dp-v13\\design_layout_snackbar.xml"
     },
     {
+        "merged": "D:\\4_course\\cursovoi\\Food_Ordering_App\\app\\build\\intermediates\\res\\merged\\debug\\drawable_good_time_icon.png.flat",
+        "source": "D:\\4_course\\cursovoi\\Food_Ordering_App\\app\\src\\main\\res\\drawable\\good_time_icon.png"
+    },
+    {
         "merged": "D:\\4_course\\cursovoi\\Food_Ordering_App\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_design_ic_visibility.png.flat",
         "source": "C:\\Users\\User\\.gradle\\caches\\transforms-1\\files-1.1\\design-27.1.1.aar\\8ef8e91f15af25ae7ef974cb26bc6457\\res\\drawable-xhdpi-v4\\design_ic_visibility.png"
     },
@@ -2172,6 +2188,10 @@
         "source": "C:\\Users\\User\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\43f1609bdae5b496513a10637924df25\\res\\drawable-hdpi-v4\\abc_btn_radio_to_on_mtrl_015.png"
     },
     {
+        "merged": "D:\\4_course\\cursovoi\\Food_Ordering_App\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_foreground.png.flat",
+        "source": "D:\\4_course\\cursovoi\\Food_Ordering_App\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_foreground.png"
+    },
+    {
         "merged": "D:\\4_course\\cursovoi\\Food_Ordering_App\\app\\build\\intermediates\\res\\merged\\debug\\layout_notification_template_big_media.xml.flat",
         "source": "C:\\Users\\User\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-27.1.1.aar\\e6483e8cabc3f7cf78962f3fcf74658d\\res\\layout\\notification_template_big_media.xml"
     },
@@ -2210,6 +2230,10 @@
     {
         "merged": "D:\\4_course\\cursovoi\\Food_Ordering_App\\app\\build\\intermediates\\res\\merged\\debug\\layout_design_bottom_navigation_item.xml.flat",
         "source": "C:\\Users\\User\\.gradle\\caches\\transforms-1\\files-1.1\\design-27.1.1.aar\\8ef8e91f15af25ae7ef974cb26bc6457\\res\\layout\\design_bottom_navigation_item.xml"
+    },
+    {
+        "merged": "D:\\4_course\\cursovoi\\Food_Ordering_App\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_foreground.png.flat",
+        "source": "D:\\4_course\\cursovoi\\Food_Ordering_App\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_foreground.png"
     },
     {
         "merged": "D:\\4_course\\cursovoi\\Food_Ordering_App\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_restaurant_menu_black_24dp.png.flat",

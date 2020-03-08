@@ -1,15 +1,7 @@
 #Internal package file, do not edit.
-#Tue Jan 07 21:32:51 EET 2020
-1.base=D\:\\4_course\\cursovoi\\Food_Ordering_App\\app\\build\\intermediates\\assets\\debug
-2.path=Fonts/NABILA.TTF
+#Sat Mar 07 22:00:51 EET 2020
 0.baseType=DIRECTORY
-2.base=D\:\\4_course\\cursovoi\\Food_Ordering_App\\app\\build\\intermediates\\assets\\debug
-2.set=ASSET
-1.baseType=DIRECTORY
-count=3
-1.set=ASSET
+0.base=D\:\\4_course\\cursovoi\\Food_Ordering_App\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
 0.path=classes.dex
 0.set=DEX
-0.base=D\:\\4_course\\cursovoi\\Food_Ordering_App\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
-2.baseType=DIRECTORY
-1.path=databases/Tomato.db
+count=1

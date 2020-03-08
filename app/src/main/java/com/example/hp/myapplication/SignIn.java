@@ -19,7 +19,6 @@ import com.google.firebase.auth.FirebaseUser;
 public class SignIn extends AppCompatActivity implements View.OnClickListener {
 
     private FirebaseAuth mAuth;
-    private FirebaseAuth.AuthStateListener mAuthListener;
 
     private EditText edtMail;
     private EditText edtPassword;
@@ -34,7 +33,7 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener {
 
         mAuth = FirebaseAuth.getInstance();
 
-        mAuthListener = new FirebaseAuth.AuthStateListener() {
+        FirebaseAuth.AuthStateListener mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
@@ -57,13 +56,13 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(SignIn.this, "Login successful", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SignIn.this, "Успiшний вхiд", Toast.LENGTH_SHORT).show();
                             Intent home = new Intent(SignIn.this, Home.class);
                             Common.currentUser = new User(edtMail.getText().toString(), edtPassword.getText().toString());
                             startActivity(home);
                             finish();
                         } else
-                            Toast.makeText(SignIn.this, "Login failed", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SignIn.this, "Помилка при входi", Toast.LENGTH_SHORT).show();
                     }
                 });
     }
