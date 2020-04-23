@@ -1,24 +1,17 @@
 package com.example.hp.myapplication;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.hp.myapplication.Database.Database;
 import com.example.hp.myapplication.Model.Order;
-import com.example.hp.myapplication.Model.Request;
 import com.example.hp.myapplication.ViewHolder.CartAdapter;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.NumberFormat;
@@ -31,13 +24,13 @@ public class Cart extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
     private FirebaseDatabase database;
-    private DatabaseReference requests;
 
     private TextView txtTotalPrice;
     private Button btnPlace;
 
     private List<Order> cart = new ArrayList<>();
     private CartAdapter adapter;
+    private String price;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,23 +38,24 @@ public class Cart extends AppCompatActivity {
         setContentView(R.layout.activity_cart);
 
         database = FirebaseDatabase.getInstance();
-        requests = database.getReference("Requests");
 
         initRecycleView();
 
         txtTotalPrice = findViewById(R.id.total);
         btnPlace = findViewById(R.id.btnPlaceOrder);
 
-        btnPlace.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showOrderActivity();
+        btnPlace.setOnClickListener(v -> {
+            if (price.equals("0.0")) {
+                Toast.makeText(Cart.this, "Ваша корзина порожня",
+                        Toast.LENGTH_LONG).show();
+                return;
             }
+            showOrderActivity();
         });
         loadListFood();
     }
 
-    private void showOrderActivity(){
+    private void showOrderActivity() {
         Intent order = new Intent(Cart.this, OrderActivity.class);
         startActivity(order);
         finish();
@@ -72,42 +66,6 @@ public class Cart extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-    }
-
-    private void showAlertDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(Cart.this);
-        builder.setTitle("Ще один крок!");
-        builder.setMessage("Введiть адерсу доставки:");
-        final EditText edtAddress = new EditText(Cart.this);
-        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.MATCH_PARENT
-        );
-        edtAddress.setLayoutParams(lp);
-        builder.setView(edtAddress);
-        builder.setIcon(R.drawable.ic_shopping_cart_black_24dp);
-        builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                if (edtAddress.getText().toString().isEmpty()) {
-                    Toast.makeText(Cart.this, "Адреса не може будти порожньою", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                Request request = new Request(
-                        "mail",
-                        edtAddress.getText().toString(),
-                        txtTotalPrice.getText().toString(),
-                        cart
-                );
-
-                requests.child(String.valueOf(System.currentTimeMillis())).setValue(request);
-
-                new Database(getBaseContext()).cleanCart();
-                Toast.makeText(Cart.this, "Ваше замовлення було підтверджено!", Toast.LENGTH_SHORT).show();
-                finish();
-            }
-        });
-        builder.show();
     }
 
     private void loadListFood() {
@@ -132,6 +90,7 @@ public class Cart extends AppCompatActivity {
         }
         Locale locale = new Locale("ua", "UA");
         NumberFormat fmt = NumberFormat.getCurrencyInstance(locale);
+        price = String.valueOf(total).trim();
 
         txtTotalPrice.setText(fmt.format(total));
     }

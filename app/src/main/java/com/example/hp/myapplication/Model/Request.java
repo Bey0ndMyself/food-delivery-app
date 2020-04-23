@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Request {
 
-    private String mail;
+    private String phoneNumber;
     private String address;
     private String total;
     private List<Order> foods;
@@ -13,19 +13,19 @@ public class Request {
 
     }
 
-    public Request(String mail, String address, String total, List<Order> foods) {
-        this.mail = mail;
+    public Request(String phoneNumber, String address, String total, List<Order> foods) {
+        this.phoneNumber = phoneNumber;
         this.address = address;
         this.total = total;
         this.foods = foods;
     }
 
-    public String getMail() {
-        return mail;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setMail(String mail) {
-        this.mail = mail;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public String getAddress() {
