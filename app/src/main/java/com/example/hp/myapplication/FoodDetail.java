@@ -1,5 +1,6 @@
 package com.example.hp.myapplication;
 
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.CollapsingToolbarLayout;
@@ -26,15 +27,12 @@ import java.util.Locale;
 
 public class FoodDetail extends AppCompatActivity {
 
-    private TextView food_name, food_price, food_description;
+    private TextView food_name, food_price, food_description, food_absent;
     private ImageView food_image;
-    private CollapsingToolbarLayout collapsingToolbarLayout;
-    private FloatingActionButton btnCart;
     private ElegantNumberButton numberButton;
-
+    private FloatingActionButton btnCart;
     private String foodId = "";
 
-    private FirebaseDatabase database;
     private DatabaseReference foods;
     private Food currentFood;
 
@@ -43,12 +41,11 @@ public class FoodDetail extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_detail);
 
-        database = FirebaseDatabase.getInstance();
-        foods = database.getReference("Foods");
+        foods = FirebaseDatabase.getInstance().getReference("Foods");
 
         numberButton = findViewById(R.id.number_button);
-        btnCart = findViewById(R.id.btncart);
 
+        btnCart = findViewById(R.id.btncart);
         btnCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,10 +61,10 @@ public class FoodDetail extends AppCompatActivity {
         food_description = findViewById(R.id.food_description);
         food_name = findViewById(R.id.food_name);
         food_price = findViewById(R.id.food_price);
-
+        food_absent = findViewById(R.id.food_absent);
         food_image = findViewById(R.id.img_food);
 
-        collapsingToolbarLayout = findViewById(R.id.collapsing);
+        CollapsingToolbarLayout collapsingToolbarLayout = findViewById(R.id.collapsing);
         collapsingToolbarLayout.setExpandedTitleTextAppearance(R.style.ExpandedAppbar);
         collapsingToolbarLayout.setCollapsedTitleTextAppearance(R.style.CollapsedAppbar);
 
@@ -90,6 +87,11 @@ public class FoodDetail extends AppCompatActivity {
                 NumberFormat fmt = NumberFormat.getCurrencyInstance(locale);
                 double price = Double.parseDouble(currentFood.getPrice());
                 food_price.setText(fmt.format(price));
+                if (!Boolean.parseBoolean(currentFood.getAvailable())) {
+                    food_absent.setText("No product");
+                    food_price.setPaintFlags(food_price.getPaintFlags() & (~Paint.STRIKE_THRU_TEXT_FLAG));
+                    btnCart.setEnabled(false);
+                }
                 food_name.setText(currentFood.getName());
                 food_description.setText(currentFood.getDescription());
             }

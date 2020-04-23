@@ -17,12 +17,10 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.example.hp.myapplication.Common.Common;
 import com.example.hp.myapplication.Interface.ItemClickListener;
 import com.example.hp.myapplication.Model.Category;
 import com.example.hp.myapplication.ViewHolder.MenuViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -46,7 +44,6 @@ public class Home extends AppCompatActivity
 
         category = FirebaseDatabase.getInstance().getReference("Category");
 
-
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,7 +64,7 @@ public class Home extends AppCompatActivity
 
         View headerView = navigationView.getHeaderView(0);
         TextView txtFullName = headerView.findViewById(R.id.txtFullName);
-        txtFullName.setText(Common.currentUser.getMail());
+        txtFullName.setText("Enjoy your meal");
 
         setRecycleMenu();
 
@@ -114,7 +111,6 @@ public class Home extends AppCompatActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -124,25 +120,16 @@ public class Home extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_menu) {
-            Intent home = new Intent(Home.this, Home.class);
-            startActivity(home);
-            finish();
         } else if (id == R.id.nav_cart) {
             Intent cart = new Intent(Home.this, Cart.class);
             startActivity(cart);
-        } else if (id == R.id.nav_orders) {
-
         } else if (id == R.id.nav_log_out) {
-            FirebaseAuth mAuth = FirebaseAuth.getInstance();
-            mAuth.signOut();
-            Common.currentUser = null;
-            Intent home = new Intent(Home.this, MainActivity.class);
-            startActivity(home);
-            finish();
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+//            FirebaseAuth mAuth = FirebaseAuth.getInstance();
+////            mAuth.signOut();
+////            Common.currentUser = null;
+////            Intent home = new Intent(Home.this, MainActivity.class);
+////            startActivity(home);
+////            finish();
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

@@ -23,7 +23,7 @@
             android:text="Name of Menu"
             android:textColor="@android:color/white"
             android:background="#4f0e0d0e"
-            android:textSize="20sp"
+            android:textSize="36sp"
             android:gravity="center"
             android:layout_alignParentBottom="true"
             />

@@ -4,7 +4,7 @@
             "outputFile": "D:\\4_course\\cursovoi\\Food_Ordering_App\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v24\\values-v24.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\User\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-27.1.1.aar\\e6483e8cabc3f7cf78962f3fcf74658d\\res\\values-v24\\values-v24.xml",
+                    "source": "C:\\Users\\bogda\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-27.1.1.aar\\47d859d5f7b0953ce882ae7d3fab4d8c\\res\\values-v24\\values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\User\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\43f1609bdae5b496513a10637924df25\\res\\values-v24\\values-v24.xml",
+                    "source": "C:\\Users\\bogda\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\3d2c1108de38c61efcfe36363cfa4736\\res\\values-v24\\values-v24.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",

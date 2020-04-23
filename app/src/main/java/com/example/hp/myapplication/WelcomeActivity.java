@@ -2,6 +2,7 @@ package com.example.hp.myapplication;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -25,17 +26,24 @@ public class WelcomeActivity extends AppCompatActivity {
     private LinearLayout dotsLayout;
     private int[] layouts;
     private Button btnSkip, btnNext;
+    private String welcomePage = "tutorial";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        SharedPreferences sharedpreferences = getSharedPreferences(getString(R.string.app_name), Context.MODE_PRIVATE);
+        if (!sharedpreferences.getBoolean(welcomePage, false)) {
+            SharedPreferences.Editor editor = sharedpreferences.edit();
+            editor.putBoolean(welcomePage, Boolean.TRUE);
+            editor.apply();
+        } else {
+            launchHomeScreen();
+        }
 
         if (Build.VERSION.SDK_INT >= 21) {
             getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
         }
-
         setContentView(R.layout.activity_welcome);
-
         viewPager = findViewById(R.id.view_pager);
         dotsLayout = findViewById(R.id.layoutDots);
         btnSkip = findViewById(R.id.btn_skip);
@@ -48,9 +56,7 @@ public class WelcomeActivity extends AppCompatActivity {
                 R.layout.welcome_slide4};
 
         addBottomDots(0);
-
         changeStatusBarColor();
-
         MyViewPagerAdapter myViewPagerAdapter = new MyViewPagerAdapter();
         viewPager.setAdapter(myViewPagerAdapter);
         viewPager.addOnPageChangeListener(viewPagerPageChangeListener);
@@ -61,7 +67,6 @@ public class WelcomeActivity extends AppCompatActivity {
                 launchHomeScreen();
             }
         });
-
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -77,7 +82,6 @@ public class WelcomeActivity extends AppCompatActivity {
 
     private void addBottomDots(int currentPage) {
         TextView[] dots = new TextView[layouts.length];
-
         int[] colorsActive = getResources().getIntArray(R.array.array_dot_active);
         int[] colorsInactive = getResources().getIntArray(R.array.array_dot_inactive);
 
@@ -89,9 +93,9 @@ public class WelcomeActivity extends AppCompatActivity {
             dots[i].setTextColor(colorsInactive[currentPage]);
             dotsLayout.addView(dots[i]);
         }
-
-        if (dots.length > 0)
+        if (dots.length > 0) {
             dots[currentPage].setTextColor(colorsActive[currentPage]);
+        }
     }
 
     private int getItem() {
@@ -99,7 +103,7 @@ public class WelcomeActivity extends AppCompatActivity {
     }
 
     private void launchHomeScreen() {
-        startActivity(new Intent(WelcomeActivity.this, MainActivity.class));
+        startActivity(new Intent(WelcomeActivity.this, Home.class));
         finish();
     }
 

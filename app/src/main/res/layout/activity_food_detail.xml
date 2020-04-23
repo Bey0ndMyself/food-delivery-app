@@ -102,6 +102,14 @@
                           android:textSize="18sp"
                           android:textStyle="bold" />
 
+                      <TextView
+                          android:id="@+id/food_absent"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:layout_weight="9"
+                          android:textColor="@android:color/holo_red_light"
+                          android:textSize="32sp" />
+
                   </LinearLayout>
 
                   <com.cepheuen.elegantnumberbutton.view.ElegantNumberButton
@@ -114,7 +122,7 @@
                       app:backGroundColor="@color/colorAccent"
                       app:initialNumber="1"
                       app:finalNumber="20"
-                      ></com.cepheuen.elegantnumberbutton.view.ElegantNumberButton>
+                      />
 
               </LinearLayout>
 

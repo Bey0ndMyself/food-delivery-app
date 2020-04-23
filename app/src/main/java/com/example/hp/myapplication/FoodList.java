@@ -18,6 +18,9 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.NumberFormat;
+import java.util.Locale;
+
 public class FoodList extends AppCompatActivity {
 
     private RecyclerView recyclerView;
@@ -33,7 +36,6 @@ public class FoodList extends AppCompatActivity {
         setToolbar();
 
         foodList = FirebaseDatabase.getInstance().getReference("Foods");
-
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,9 +86,11 @@ public class FoodList extends AppCompatActivity {
         ) {
             @Override
             protected void populateViewHolder(FoodViewHolder viewHolder, Food model, int position) {
-                viewHolder.food_name.setText(model.getName());
+                viewHolder.food_name.setText(model.getName() + "                    " + getPrice(model.getPrice()));
                 Glide.with(getBaseContext()).load(model.getImage()).into(viewHolder.food_image);
-
+                if(!Boolean.parseBoolean(model.getAvailable())){
+                    viewHolder.food_absent.setText("No product!");
+                }
                 viewHolder.setItemClickListener(new ItemClickListener() {
                     @Override
                     public void onClick(View view, int position, boolean isLongClick) {
@@ -107,5 +111,11 @@ public class FoodList extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
+    }
+
+    private String getPrice(String price) {
+        Locale locale = new Locale("ua", "UA");
+        NumberFormat fmt = NumberFormat.getCurrencyInstance(locale);
+        return fmt.format(Double.parseDouble(price));
     }
 }

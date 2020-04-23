@@ -2,19 +2,29 @@ package com.example.hp.myapplication.Model;
 
 public class Food {
 
-    private String Name, Image, Description, Price, Discount, MenuId;
+    private String Name, Image, Description, Price, Discount, MenuId, Available;
 
     public Food() {
 
     }
 
-    public Food(String name, String image, String description, String price, String discount, String menuId) {
+    public Food(String name, String image, String description, String price,
+                String discount, String menuId, String available) {
         Name = name;
         Image = image;
         Description = description;
         Price = price;
         Discount = discount;
         MenuId = menuId;
+        Available = available;
+    }
+
+    public String getAvailable() {
+        return Available;
+    }
+
+    public void setAvailable(String available) {
+        Available = available;
     }
 
     public String getName() {

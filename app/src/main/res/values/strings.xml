@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Good Time delivery</string>
+    <string name="app_name">Delivery Time</string>
     <string name="title_activity_welcome">Home Screen</string>
     <string name="next">ДАЛІ</string>
     <string name="skip">ПРОПУСТИТИ</string>
@@ -7,15 +7,12 @@
     <string name="SignUp">реєстрація</string>
     <string name="slogan">Де б ви не знаходилися, ми знайдемо і нагодуємо вас</string>
 
-    <string name="slide_1_title">Good Time</string>
+    <string name="slide_1_title">Delivery Time</string>
     <string name="slide_1_desc">Найпростіший спосіб замовити їжу в улюбленому ресторані</string>
-
     <string name="slide_2_title">Доставка за розкладом</string>
     <string name="slide_2_desc">Сплануйте доставку та здивуйте своїх рідних та друзів</string>
-
     <string name="slide_3_title">Великі знижки</string>
     <string name="slide_3_desc">Найкраща знижка на кожне замовлення</string>
-
     <string name="slide_4_title">Найшвидша доставка</string>
     <string name="slide_4_desc">Найшвидша доставка в порівнянні з будь-якою іншою службою доставки</string>
 
@@ -29,4 +26,8 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
     <string name="minus">—</string>
+
+    <string name="provider_gps">GPS</string>
+    <string name="provider_network">Network</string>
+    <string name="location_settings">Location settings</string>
 </resources>

@@ -4,7 +4,7 @@
             "outputFile": "D:\\4_course\\cursovoi\\Food_Ordering_App\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-land\\values-land.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\User\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\43f1609bdae5b496513a10637924df25\\res\\values-land\\values-land.xml",
+                    "source": "C:\\Users\\bogda\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\3d2c1108de38c61efcfe36363cfa4736\\res\\values-land\\values-land.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\User\\.gradle\\caches\\transforms-1\\files-1.1\\design-27.1.1.aar\\8ef8e91f15af25ae7ef974cb26bc6457\\res\\values-land\\values-land.xml",
+                    "source": "C:\\Users\\bogda\\.gradle\\caches\\transforms-1\\files-1.1\\design-27.1.1.aar\\a6420b4687b1f45c91779a870523dc0b\\res\\values-land\\values-land.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

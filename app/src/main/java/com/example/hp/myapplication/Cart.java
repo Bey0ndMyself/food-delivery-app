@@ -1,6 +1,7 @@
 package com.example.hp.myapplication;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -13,7 +14,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.hp.myapplication.Common.Common;
 import com.example.hp.myapplication.Database.Database;
 import com.example.hp.myapplication.Model.Order;
 import com.example.hp.myapplication.Model.Request;
@@ -28,16 +28,16 @@ import java.util.Locale;
 
 public class Cart extends AppCompatActivity {
 
-    RecyclerView recyclerView;
-    RecyclerView.LayoutManager layoutManager;
-    FirebaseDatabase database;
-    DatabaseReference requests;
+    private RecyclerView recyclerView;
+    private RecyclerView.LayoutManager layoutManager;
+    private FirebaseDatabase database;
+    private DatabaseReference requests;
 
-    TextView txtTotalPrice;
-    Button btnPlace;
+    private TextView txtTotalPrice;
+    private Button btnPlace;
 
-    List<Order> cart = new ArrayList<>();
-    CartAdapter adapter;
+    private List<Order> cart = new ArrayList<>();
+    private CartAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,10 +55,16 @@ public class Cart extends AppCompatActivity {
         btnPlace.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showAlertDialog();
+                showOrderActivity();
             }
         });
         loadListFood();
+    }
+
+    private void showOrderActivity(){
+        Intent order = new Intent(Cart.this, OrderActivity.class);
+        startActivity(order);
+        finish();
     }
 
     private void initRecycleView() {
@@ -79,11 +85,6 @@ public class Cart extends AppCompatActivity {
         );
         edtAddress.setLayoutParams(lp);
         builder.setView(edtAddress);
-//        builder.setSingleChoiceItems(R.array.payment_options, 0, new DialogInterface.OnClickListener() {
-//            public void onClick(DialogInterface dialog, int which) {
-//                System.out.println(which);
-//            }
-//        });
         builder.setIcon(R.drawable.ic_shopping_cart_black_24dp);
         builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
             @Override
@@ -93,7 +94,7 @@ public class Cart extends AppCompatActivity {
                     return;
                 }
                 Request request = new Request(
-                        Common.currentUser.getMail(),
+                        "mail",
                         edtAddress.getText().toString(),
                         txtTotalPrice.getText().toString(),
                         cart
